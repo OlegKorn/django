@@ -33,7 +33,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'bboard.apps.BboardConfig',           # class BboardConfig по адресу samplesite.bboard.apps.py
+    'bboard.apps.BboardConfig',            # class BboardConfig по адресу samplesite.bboard.apps.py 
 ]
 
 MIDDLEWARE = [
