@@ -6,8 +6,8 @@ def index(request):
     bbs = Bb.objects.all()
     rubrics = Rubric.objects.all()
     context = {
-      'bbs' : bbs, 
-      'rubrics': rubrics
+        'bbs' : bbs, 
+        'rubrics': rubrics
     }
 
     return render(
@@ -29,6 +29,6 @@ def by_rubric(request, rubric_id):
 
     return render(
         request, 
-        'bboard/by_rubric.html/', 
+        'bboard/by_rubric.html', 
         context
     )
