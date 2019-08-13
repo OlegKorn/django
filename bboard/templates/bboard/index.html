@@ -7,7 +7,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" src="index.css">
     
     <style>
       .bd-placeholder-img {
@@ -21,7 +21,7 @@
       }
     </style>
 
-    <title>Hello, world!</title>
+    <title>Django learning</title>
   </head>
 
   <body>
@@ -36,39 +36,28 @@
       </header>
 
       <div class="jumbotron col-md-12 px-0 text-center">
-        <h1 class="display-4 font-italic">Just a Django blog for learning</h1>
+        <h1 class="display-4 font-italic">Just a Django driven blog for learning</h1>
         <p class="lead my-3">"What do you suppose will satysfy the soul except to walk free and own no superior?" W. Whitman</p>
       </div>
 
       <div class="row mb-2">
+        {% for bb in bbs %}
         <div class="col-md-6">
           <div class="card flex-md-row mb-4 shadow-sm h-md-250">
             <div class="card-body d-flex flex-column align-items-start">
-              <strong class="d-inline-block mb-2 text-primary">World</strong>
               <h3 class="mb-0">
-                <a class="text-dark" href="#">Featured post</a>
+                <a class="text-dark" href="#"> {{ bb.title }} </a>    
+                <p class="text-dark"> {{ bb.price }}</p>
               </h3>
-              <div class="mb-1 text-muted">Nov 12</div>
-              <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+              <div class="mb-1 text-muted"> {{ bb.published }} </div>  
+              <p class="card-text mb-auto"> {{ bb.content }} </p>
               <a href="#">Continue reading</a>
             </div>
-            <svg class="bd-placeholder-img card-img-right flex-auto d-none d-lg-block" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect fill="#55595c" width="100%" height="100%"/><text fill="#eceeef" dy=".3em" x="50%" y="50%">Thumbnail</text></svg>
+            <svg class="bd-placeholder-img card-img-right flex-auto d-none d-lg-block" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect fill="#55595c" width="100%" height="100%"/><text fill="#eceeef" dy=".3em" x="50%" y="50%">Thumbnail</text></svg> 
           </div>
-        </div>
-        <div class="col-md-6">
-          <div class="card flex-md-row mb-4 shadow-sm h-md-250">
-            <div class="card-body d-flex flex-column align-items-start">
-              <strong class="d-inline-block mb-2 text-success">Design</strong>
-              <h3 class="mb-0">
-                <a class="text-dark" href="#">Post title</a>
-              </h3>
-              <div class="mb-1 text-muted">Nov 11</div>
-              <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-              <a href="#">Continue reading</a>
-            </div>
-            <svg class="bd-placeholder-img card-img-right flex-auto d-none d-lg-block" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect fill="#55595c" width="100%" height="100%"/><text fill="#eceeef" dy=".3em" x="50%" y="50%">Thumbnail</text></svg>
-          </div>
-        </div>
+        </div> 
+        {% endfor %}
+
       </div>
     </div>
 
