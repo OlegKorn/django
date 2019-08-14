@@ -46,12 +46,20 @@
         <div class="row text-center">
           <ul class="nav">
             <li class="nav-item">
-              <a class="nav-link" href="/bboard/">Main page</a>
+              
+              <!--href="/bboard/"-->
+              <a class="nav-link" href="{% url 'index' %}">Main page</a>
+              <!--href="/bboard/"-->
+
             </li>
 
             {% for rubric in rubrics %}
             <li class="nav-item">
-              <a class="nav-link tag" href="/bboard/{{ rubric.pk }}/">{{ rubric.name }}</a>
+
+              <!--href="/bboard/{{ rubric.pk }}/"-->
+              <a class="nav-link" href="{% url 'by_rubric' rubric.pk %}">{{ rubric.name }}</a>
+              <!--href="/bboard/{{ rubric.pk }}/"-->
+              
             </li>
             {% endfor %}
 
@@ -66,9 +74,7 @@
             <div class="card shadow-sm">
               <div class="card-body align-items-start">
                 <h5 class="mb-0">
-                  <a class="text-dark" href="#"> {{ bb.title }} </a> 
-                  <br/>   
-                  <br/>
+                  <h3><a class="text-dark" href="#"> {{ bb.title }} </a></h3>
                   <p class="text-dark"> PRICE: {{ bb.price }} $</p>
                 </h3>
                 <div class="mb-1 text-muted"> {{ bb.published }} </div>  

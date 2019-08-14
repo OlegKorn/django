@@ -3,6 +3,6 @@ from .views import index, by_rubric
 
 
 urlpatterns = [
-    path('', index),
-    path('<int:rubric_id>/', by_rubric)
+    path('', index, name='index'),
+    path('<int:rubric_id>/', by_rubric, name='by_rubric'),
 ]
