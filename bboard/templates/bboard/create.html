@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     
     {% load static %}
-    <link rel="stylesheet" href="{% static "css/main.css" %}" > 
+    <link rel="stylesheet" href="{% static "css/main.css" %}">
     
     <style>
       .bd-placeholder-img {
@@ -23,25 +23,25 @@
       }
     </style>
 
-    <title> {{ current_rubric.name }} </title>
+    <title>Add an advertisment</title>
   </head>
 
   <body>
     <h1></h1>
     <div class="container">
       <header class="blog-header py-3">
-        <div class="row flex-nowrap justify-content-between align-items-center">
-          <div class="col-12 text-center">
-            <h1>Real Estate Blog</h1>
-          </div>
+      <div class="row flex-nowrap justify-content-between align-items-center">
+        <div class="col-12 text-center">
+          <h1>Real Estate Blog</h1>
         </div>
+      </div>
       </header>
 
       <div class="jumbotron col-md-12 text-center">
-        <h1 class="display-4 font-italic">Rubric: {{ current_rubric.name }} </h1>
-        <small class="lead my-3">"What do you suppose will satysfy the soul except to walk free and own no superior?" W. Whitman</small>
+        <h1 class="display-4 font-italic">Add an advertisment</h1>
+        <p class="lead my-3">"What do you suppose will satysfy the soul except to walk free and own no superior?" W. Whitman</p>
       </div>
-      
+
       <div class="container">
         <div class="row flex-nowrap justify-content-between align-items-center">
           <ul class="nav">
@@ -59,33 +59,21 @@
               <a class="nav-link" href="{% url 'by_rubric' rubric.pk %}">{{ rubric.name }}</a>
             </li>
             {% endfor %}
+            
+          </ul> 
+        </div>
 
-          </ul>
-        </div>   
-      </div>
-
-      <div class="container">
-        <div class="row">
-          {% for bb in bbs %}
-          <div class="col-md-4 entry">
-            <div class="card shadow-sm">
-              <div class="card-body align-items-start">
-                <h5 class="mb-0">
-                  <b><a class="text-dark" href="#"> {{ bb.title }} </a></b> 
-                  <p class="text-dark"> PRICE: {{ bb.price }} $</p>
-                </h3>
-                <div class="mb-1 text-muted"> {{ bb.published }} </div>  
-                <p class="card-text mb-auto"> {{ bb.content }} </p>
-                <p class="card-text mb-auto"><a href="/bboard/{{ bb.rubric.pk }}">{{ bb.rubric.name }}</a></p>
-              </div> 
+        <div class="row flex-nowrap justify-content-between align-items-center">
+          <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+              {{ form.as_p }}
+              <input type="submit" class="form-control" value="Add">
             </div>
-          </div> 
-          {% endfor %}
-        </div>        
+          </form>  
+        </div>
       </div>
-
     </div>
-
 
 
 
