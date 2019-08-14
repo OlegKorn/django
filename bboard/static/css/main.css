@@ -1,5 +1,4 @@
 .jumbotron {
-  background-color: #FF8B51 !important;
   margin-bottom: 0 !important;
   font-size: 3rem;
   -moz-box-shadow:    1px 1px #ccc !important;
@@ -11,14 +10,32 @@
   background-color: #FFEC5E;
 }
 .tag {
-    color: #7a7a8c;
-    padding: 0 auto;
-    margin: 0 1rem auto;
+    color: #FFEC5E !important;
     text-transform: uppercase;
-/* stylelint-disable selector-list-comma-newline-after */
+    background-color: #A0A0A0 !important;
+    margin: 0 3px;
+    padding: 0 7px;
+    font-size: 13px;
+    box-sizing: border-box;
+    text-decoration: none;
+    vertical-align: center;
+}
+    .card-text .tag {
+        color: #FFEC5E !important;
+        text-transform: uppercase;
+        background-color: #A0A0A0 !important;
+        margin: 0 3px;
+        padding: 0 7px;
+        font-size: 13px;
+        box-sizing: border-box;
+        text-decoration: none;
+        vertical-align: center;
+    }
+
 p {
   margin-bottom: 0;
 }
+
 .shadow {
   position: relative;
 }
