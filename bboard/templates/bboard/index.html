@@ -46,12 +46,12 @@
         <div class="row text-center">
           <ul class="nav">
             <li class="nav-item">
-              <a class="nav-link" href="/bboard">Main page</a>
+              <a class="nav-link" href="/bboard/">Main page</a>
             </li>
 
             {% for rubric in rubrics %}
             <li class="nav-item">
-              <a class="nav-link" href="/bboard/{{ rubric.pk }}/">{{ rubric.name }}</a>
+              <a class="nav-link tag" href="/bboard/{{ rubric.pk }}/">{{ rubric.name }}</a>
             </li>
             {% endfor %}
 
@@ -73,7 +73,7 @@
                 </h3>
                 <div class="mb-1 text-muted"> {{ bb.published }} </div>  
                 <p class="card-text mb-auto"> {{ bb.content }} </p>
-                <p class="card-text mb-auto"><a href="/bboard/{{ bb.rubric.pk }}">{{ bb.rubric.name }}</a></p>
+                <p class="card-text mb-auto tag"><a href="/bboard/{{ bb.rubric.pk }}">{{ bb.rubric.name }}</a></p>
               </div> 
             </div>
           </div> 

@@ -1,11 +1,10 @@
 from django.contrib import admin
 from django.urls import path, include
-from bboard.views import index, by_rubric
+from bboard.views import index
 
 
 urlpatterns = [
     path('', index),
-    path('bboard/', index),
-    path('bboard/<int:rubric_id>/', by_rubric),
+    path('bboard/', include('bboard.urls')),
     path('admin/', admin.site.urls)
 ]
