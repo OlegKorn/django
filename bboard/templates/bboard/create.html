@@ -42,41 +42,36 @@
         <p class="lead my-3">"What do you suppose will satysfy the soul except to walk free and own no superior?" W. Whitman</p>
       </div>
 
-      <div class="container">
-        <div class="row flex-nowrap justify-content-between align-items-center">
-          <ul class="nav">
-            <li class="nav-item">
-              <!--href="/bboard/"-->
-              <a class="nav-link" href="{% url 'index' %}">Main page</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'add' %}">Add new</a>
-            </li>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'index' %}">Main page</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'add' %}">Add new</a>
+          </li>
 
-            {% for rubric in rubrics %}
-            <li class="nav-item">
-              <!--href="/bboard/{{ rubric.pk }}/"-->
-              <a class="nav-link" href="{% url 'by_rubric' rubric.pk %}">{{ rubric.name }}</a>
-            </li>
-            {% endfor %}
-            
-          </ul> 
-        </div>
+          {% for rubric in rubrics %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'by_rubric' rubric.pk %}">{{ rubric.name }}</a>
+          </li>
+          {% endfor %}
 
-        <div class="row flex-nowrap justify-content-between align-items-center">
-          <form method="post">
-            {% csrf_token %}
-            <div class="form-group">
-              {{ form.as_p }}
-              <input type="submit" class="form-control" value="Add">
+        </ul>
+      </nav>
+
+      <div class="row flex-nowrap justify-content-between align-items-center">
+        <form method="post">
+          {% csrf_token %}
+          <div class="form-group">
+            <div class="row flex-nowrap justify-content-between align-items-center">
+              <div class="col-md-6">{{ form.as_p }}</div>
             </div>
-          </form>  
-        </div>
+            <input type="submit" class="form-control" value="Add">
+          </div>
+        </form>  
       </div>
     </div>
-
-
-
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

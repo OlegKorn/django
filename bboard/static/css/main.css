@@ -1,62 +1,40 @@
 .jumbotron {
-  background-color: #000 !important;
+  background-color: #FF8B51 !important;
   margin-bottom: 0 !important;
+  font-size: 3rem;
   -moz-box-shadow:    1px 1px #ccc !important;
   -webkit-box-shadow: 1px 1px #ccc !important;
   box-shadow:         1px 1px #ccc !important;
-  transition: .3s;
   -webkit-animation: rainbow 3s linear infinite;
 }
+.color {
+  background-color: #FFEC5E;
+}
+.tag {
+    color: #7a7a8c;
+    padding: 0 auto;
+    margin: 0 1rem auto;
+    text-transform: uppercase;
 /* stylelint-disable selector-list-comma-newline-after */
-  @-webkit-keyframes rainbow {
-        from {
-          text-shadow: 0.04em 0.04em #ff0000, 0.08em 0.08em #ff7f00, 0.12em 0.12em #ffff00, 0.16em 0.16em #00ff00, 0.2em 0.2em #0000ff, 0.24em 0.24em #4b0082, 0.28em 0.28em #8f00ff;
-        }
-        15% {
-          text-shadow: 0.04em 0.04em #8f00ff, 0.08em 0.08em #ff0000, 0.12em 0.12em #ff7f00, 0.16em 0.16em #ffff00, 0.2em 0.2em #00ff00, 0.24em 0.24em #0000ff, 0.28em 0.28em #4b0082;
-        }
-        30% {
-          text-shadow: 0.04em 0.04em #4b0082, 0.08em 0.08em #8f00ff, 0.12em 0.12em #ff0000, 0.16em 0.16em #ff7f00, 0.2em 0.2em #ffff00, 0.24em 0.24em #00ff00, 0.28em 0.28em #0000ff;
-        }
-        45% {
-          text-shadow: 0.04em 0.04em #0000ff, 0.08em 0.08em #4b0082, 0.12em 0.12em #8f00ff, 0.16em 0.16em #ff0000, 0.2em 0.2em #ff7f00, 0.24em 0.24em #ffff00, 0.28em 0.28em #00ff00;
-        }
-        60% {
-          text-shadow: 0.04em 0.04em #00ff00, 0.08em 0.08em #0000ff, 0.12em 0.12em #4b0082, 0.16em 0.16em #8f00ff, 0.2em 0.2em #ff0000, 0.24em 0.24em #ff7f00, 0.28em 0.28em #ffff00;
-        }
-        75% {
-          text-shadow: 0.04em 0.04em #ffff00, 0.08em 0.08em #00ff00, 0.12em 0.12em #0000ff, 0.16em 0.16em #4b0082, 0.2em 0.2em #8f00ff, 0.24em 0.24em #ff0000, 0.28em 0.28em #ff7f00;
-        }
-        90% {
-          text-shadow: 0.04em 0.04em #ff7f00, 0.08em 0.08em #ffff00, 0.12em 0.12em #00ff00, 0.16em 0.16em #0000ff, 0.2em 0.2em #4b0082, 0.24em 0.24em #8f00ff, 0.28em 0.28em #ff0000;
-        }
-        to {
-          text-shadow: 0.04em 0.04em #ff0000, 0.08em 0.08em #ff7f00, 0.12em 0.12em #ffff00, 0.16em 0.16em #00ff00, 0.2em 0.2em #0000ff, 0.24em 0.24em #4b0082, 0.28em 0.28em #8f00ff;
-        }
-  }
-
-
+p {
+  margin-bottom: 0;
+}
 .shadow {
   position: relative;
 }
-    .shadow:hover {
-      -webkit-box-shadow: 0 15px 15px #666;
-      -moz-box-shadow: 0 15px 15px #666;
-      box-shadow: 0 20px 15px #666;
-    }
     .shadow:before, .shadow:after {
       z-index: -1;
       position: absolute;
       content: "";
       bottom: 15px;
-      left: 10px;
+      left: 13px;
       width: 50%;
       top: 80%;
       max-width:300px;
-      background: #777;
-      -webkit-box-shadow: 0 15px 10px #777;
-      -moz-box-shadow: 0 15px 10px #777;
-      box-shadow: 0 15px 10px #777;
+      background: #666;
+      -webkit-box-shadow: 0 15px 13px #888;
+      -moz-box-shadow: 0 15px 13px #888;
+      box-shadow: 0 15px 13px #888;
       -webkit-transform: rotate(-3deg);
       -moz-transform: rotate(-3deg);
       -o-transform: rotate(-3deg);
