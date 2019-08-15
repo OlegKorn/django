@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+
+  <body>
+
+  <div class="container">
+    <div class="row justify-content-center">
+      <header>
+        <style> header {margin: 1rem; padding: 1rem;}</style>
+        <h2>Курсы валют на <span id="js-date"></span><h2>
+      </header>
+    </div>
+  </div> 
+  
+  <section>
+    <div class="container main-section">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col" class="grey">Код</th>
+            <th scope="col" class="grey">Номинал</th>
+            <th scope="col" class="grey">Валюта</th>
+            <th scope="col" class="grey">Курс ЦБ</th>
+            <th scope="col" class="grey">Изменения</th>
+            <th scope="col" class="grey">%</th>
+          </tr>
+        </thead>
+  
+        <tbody>
+          {% for i in all %}
+          <tr>
+            <td class="grey"> {{ i.0 }} </td>
+            <td class="grey">{{ i.1 }}</td>
+            <td class="thick">{{ i.2 }}</td>
+            <td>{{ i.3 }}</td>
+            <td style="color: {% if i.4 > 0 %} green {% else %} red {% endif %} ;"> {{ i.4 }} </td>              
+            <td style="color:{% if i.4 > 0 %} green {% else %} red {% endif %};"> {{ i.5 }} </td> 
+          </tr>
+          {% endfor %}
+        </tbody> 
+      </table>
+    </div>
+  </section>
+
+
+  <!--js-date-->
+  <script>
+    window.onload = function() {
+      var d = new Date();
+      
+      var today = (
+        '   ' + '0' + d.getDate()).slice(-2) + '.' +
+        ('0' + (d.getMonth() + 1)).slice(-2) + '.' +
+        d.getFullYear();
+      
+      document.getElementById('js-date').innerHTML = today;
+    };
+  </script>
+  </body>
+</html>
+      
