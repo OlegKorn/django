@@ -2,6 +2,8 @@ from django.urls import path
 from .views import index, by_rubric, BbCreateView
 from getcurrency.views import get_currency
 
+from .views import get_test #test
+
 
 urlpatterns = [
     path('', index, name='index'),

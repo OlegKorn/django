@@ -1,7 +1,10 @@
 from django.shortcuts import render
 from django.views.generic.edit import CreateView
 from .forms import BbForm
-from .models import Bb, Rubric
+from .models import (
+    Bb, 
+    Rubric
+)
 from django.urls import reverse_lazy
 
 
@@ -14,7 +17,6 @@ class BbCreateView(CreateView):
         context = super().get_context_data(**kwargs)
         context['rubrics'] = Rubric.objects.all()
         return context
-
 
 def index(request):
     bbs = Bb.objects.all()
@@ -29,7 +31,6 @@ def index(request):
         'bboard/index.html', 
         context        
     )
-
 
 def by_rubric(request, rubric_id):
     bbs = Bb.objects.filter(rubric=rubric_id)
@@ -48,3 +49,8 @@ def by_rubric(request, rubric_id):
     )
 
 
+#testtesttesttesttesttesttesttesttesttesttest
+def get_test(request):
+    test = 'TEST MESSGAE'
+    context = {'test' : test}
+    return render(request, 'bboard/test.html', context)
