@@ -51,14 +51,18 @@ def by_rubric(request, rubric_id):
 
 #testtesttesttesttesttesttesttesttesttesttest
 def get_test(request):
-    test = 'TEST MESSGAE'
+    
     if request.GET:
         
         url = request.GET.get("url")
         num = request.GET.get("num")
+
+        context = {
+          'url' : url,
+          'num' : num,
+        }
         print('dfsdfsfd', url, num)
 
-    context = {'test' : test}
     return render(request, 'bboard/test.html', context)
 
 

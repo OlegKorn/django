@@ -12,8 +12,6 @@ urlpatterns = [
     path('', index),
     path('bboard/', include('bboard.urls')),
     path('admin/', admin.site.urls),
-
-    #test
     path('test/', get_test), #test
 
     #app "getcurrency"
