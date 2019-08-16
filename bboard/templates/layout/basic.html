@@ -23,8 +23,24 @@
       }
     </style>
 
-    <title>{% block title %}Title{% endblock %}</title>
+    <title>{% block title %} {% endblock %}</title>
   </head>
+
+  <body>
+    
+    <nav class="navbar justify-content-center navbar-expand-sm color2">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <b><a class="nav-link" href="{% url 'index' %}">Main page</a></b>
+        </li>
+        <li class="nav-item">
+          <b><a class="nav-link" href="{% url 'add' %}">Add new</a></b>
+        </li>
+        <li class="nav-item">
+          <b><a class="nav-link" href="{% url 'currency' %}">Currencies today's rate</a></b>
+        </li>
+      </ul>
+    </nav>
 
 {% block content%}
 {% endblock %}

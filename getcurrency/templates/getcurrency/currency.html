@@ -39,8 +39,10 @@
             <td class="grey">{{ i.1 }}</td>
             <td class="thick">{{ i.2 }}</td>
             <td>{{ i.3 }}</td>
-            <td style="color: {% if i.4 > 0 %} green {% else %} red {% endif %} ;"> {{ i.4 }} </td>              
-            <td style="color:{% if i.4 > 0 %} green {% else %} red {% endif %};"> {{ i.5 }} </td> 
+            <td style="color: {% if i.4 > 0 %} green {% else %} red {% endif %} ;"
+              >{% if i.4 > 0 %} + {% else %}  {% endif %} {{ i.4 }}</td>              
+            <td style="color:{% if i.5 > 0 %} green {% else %} red {% endif %};">
+              {% if i.5 > 0 %} + {% else %}  {% endif %} {{ i.5 }}</td> 
           </tr>
           {% endfor %}
         </tbody> 

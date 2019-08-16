@@ -1,29 +1,55 @@
-.main {
-  margin: 2rem;
-}
-.tags {
-  margin: 5rem;
+.main-content {
+  margin-top: 2rem;
 }
 
+.navbar {
+  padding: 0 !important;
+}
+  .nav-link {
+    text-transform: uppercase;
+    margin: 0 2rem;
+    color: #000;
+  }
+  .nav-link:hover {
+     color: #000;
+  }
+
+.mt3 {
+  margin-top: 3rem !important;
+}
+.p3 {
+  padding: 3rem;
+}
+.br2 {
+  border-radius: 2rem
+}
 .color {
-  background-color: #FFEC5E;
+  background-color: #c8f5de;
+}
+.color2 {
+  background-color: #e5f5ae !important;
+}
+.color3 {
+  background-color: #f8f58e;
+}
+.card {
+  margin: 1rem 0;
 }
 .tag {
-    color: #FFEC5E !important;
+    color: #000 !important;
     text-transform: uppercase;
-    background-color: #A0A0A0 !important;
-    margin: 0 3px;
-    padding: 0 7px;
+    background-color: #c8f5de !important;
+    margin: 8px 3px;
     font-size: 13px;
     text-decoration: none !important;
 }
     .card-text .tag {
-        color: #FFEC5E !important;
+        color: #000 !important;
         text-transform: uppercase;
-        background-color: #A0A0A0 !important;
-        margin: 0 3px;
-        padding: 0 7px;
+        background-color: #c8f5de !important;
         font-size: 13px;
+        margin: 0;
+        padding: 0;
         text-decoration: none !important;
     }
 
@@ -54,6 +80,39 @@ p {
       transform: rotate(-3deg);
     }
     .shadow:after
+    {
+      -webkit-transform: rotate(3deg);
+      -moz-transform: rotate(3deg);
+      -o-transform: rotate(3deg);
+      -ms-transform: rotate(3deg);
+      transform: rotate(3deg);
+      right: 10px;
+      left: auto;
+    }
+
+.shadow2 {
+  position: relative;
+}
+    .shadow2:before, .shadow2:after {
+      z-index: -1;
+      position: absolute;
+      content: "";
+      bottom: 15px;
+      left: 13px;
+      width: 50%;
+      top: 80%;
+      max-width:300px;
+      background: #666;
+      -webkit-box-shadow: 0 15px 13px #888;
+      -moz-box-shadow: 0 15px 13px #888;
+      box-shadow: 0 15px 13px #888;
+      -webkit-transform: rotate(-1deg);
+      -moz-transform: rotate(-1deg);
+      -o-transform: rotate(-1deg);
+      -ms-transform: rotate(-1deg);
+      transform: rotate(-1deg);
+    }
+    .shadow2:after
     {
       -webkit-transform: rotate(3deg);
       -moz-transform: rotate(3deg);

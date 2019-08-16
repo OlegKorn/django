@@ -1,6 +1,7 @@
 #-*-coding:utf-8-*-
 import requests, re
 from bs4 import BeautifulSoup as bs
+import yaml
 
 
 class Currency_:
@@ -53,12 +54,12 @@ class Currency_:
 
     def get_changes(self):
         self.changes_html = self.soup.find_all('div', class_=re.compile('.*--change.*'))[0:]
-        self.changes = [self.change.text.replace('\n', '') for self.change in self.changes_html[1:]]
+        self.changes = [yaml.load(self.change.text.replace('\n', '').strip()) for self.change in self.changes_html[1:]]
         return self.changes   
 
     def get_percents(self):
         self.percents_html = self.soup.find_all('div', class_=re.compile('.*--percent.*'))[0:]
-        self.percents = [self.percent.text.replace('\n', '') for self.percent in self.percents_html[1:]]
+        self.percents = [yaml.load(self.percent.text.replace('\n', '').replace('%', '').strip()) for self.percent in self.percents_html[1:]]
         return self.percents 
 
     def get_list_of_all(self):
@@ -70,6 +71,8 @@ class Currency_:
               self.get_changes(),
               self.get_percents()
         ))
+
+        print(self.values[1])
 
         return self.list_of_all
 
