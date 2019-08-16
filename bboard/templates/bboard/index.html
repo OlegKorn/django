@@ -14,10 +14,10 @@
                 <div class="form-group">
                   <h4>Search ads data by url</h4> {{ form.title }}
                   <p class="lh115 mt025">Put an url from this "https://www.move2oregon.com" website, ex.: <span class="italic small mt025">https://www.move2oregon.com/all-properties/homes-on-acreage</span></p>
-                  <input type="text" class="form-control mt025" id="url" aria-describedby="urlHelp" placeholder="Enter url">
+                  <input type="text" name="url" class="form-control mt025" id="url" aria-describedby="urlHelp" placeholder="Enter url">
                   <h4 class="mt075">Define how many ads to find</h4>
                   <p class="lh105 mt025">Enter a number of ads to be found, ex.: <span class="italic small">10</span></p>
-                  <input type="text" class="form-control mt025" id="number" aria-describedby="numberOfAds" placeholder="Enter a number">
+                  <input type="text" name="num" class="form-control mt025" id="number" aria-describedby="numberOfAds" placeholder="Enter a number">
                   
                   <div class="row justify-content-center">
                     <button type="submit" class="btn btn-primary mt025" name="testBtn">Submit</button>

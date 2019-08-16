@@ -5,17 +5,6 @@ import yaml
 
 
 class Currency_:
-    '''
-    from bboard.currency import Currency_
-    c = Currency_()
-    c.get_soup()
-    c.get_codes()
-    c.get_nominals()
-    c.get_names()
-    c.get_values()
-    c.get_changes()
-    c.get_percents()
-    '''
 
     headers = {
         'accept':'*/*', 

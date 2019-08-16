@@ -52,5 +52,23 @@ def by_rubric(request, rubric_id):
 #testtesttesttesttesttesttesttesttesttesttest
 def get_test(request):
     test = 'TEST MESSGAE'
+    if request.GET:
+        
+        url = request.GET.get("url")
+        num = request.GET.get("num")
+        print('dfsdfsfd', url, num)
+
     context = {'test' : test}
     return render(request, 'bboard/test.html', context)
+
+
+'''def login_view(request):
+    if(request.POST):
+        login_data = request.POST.dict()
+        username = login_data.get("username")
+        password = login_data.get("password")
+        user_type = login_data.get("user_type")
+        print(user_type, username, password)
+        return HttpResponse("This is a post request")
+    else:
+        return render(request, "base.html")'''

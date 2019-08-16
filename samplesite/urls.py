@@ -14,7 +14,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     #test
-    path('test', get_test), #test
+    path('test/', get_test), #test
 
     #app "getcurrency"
     path('currency/', include('getcurrency.urls')),
