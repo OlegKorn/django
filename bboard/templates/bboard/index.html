@@ -1,29 +1,17 @@
 {% extends "layout/basic.html" %}
 
 {% block content %}
-  
-    <div class="container mt3 p3 color3 br2">
+    
+    <div class="container main-container">
       <div class="row justify-content-center">
-        <h1>Real estate ads</h1>           
-      </div>
-    </div>
-
-    <div class="container main-content">
-      <div class="row justify-content-center">
-        <div class="col-md-2 col-sm-12 tags">
-          <p>TAGS:</p>
-          {% for rubric in rubrics %}
-            <a class="tag" href="{% url 'by_rubric' rubric.pk %}">{{ rubric.name }}</a>
-          {% endfor %}
-        </div>
-
-        <div class="col-md-10 col-sm-12 card">
+        <div class="col-md-8 col-sm-12 card">
           {% for bb in bbs %}
           <div class="card shadow-sm">
             <div class="card-body align-items-start shadow color">
               <h5 class="mb-0">
                 <b>{{ bb.title }}</b>
-                <p class="text-dark"><b>PRICE: {{ bb.price }} $</b></p>
+                </br>
+                <small class="text-dark">PRICE: {{ bb.price }} $</small>
               </h5>
               <div class="mb-1 text-muted"> {{ bb.published }} </div>  
               <p class="card-text mb-auto"> {{ bb.content }} </p>
@@ -32,7 +20,6 @@
           </div>
           {% endfor %}
         </div> 
-
       </div>
     </div>
     
