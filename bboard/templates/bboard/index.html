@@ -1,4 +1,4 @@
-{% extends "layout/basic.html" %}
+{% extends "basic.html" %}
 
 {% block content %}
     
@@ -9,7 +9,7 @@
           <div class="container">
             <div class="col-lg-12 col-md-12 border1 mtb1">
               
-              <form action="test" method="GET">
+              <form action="search" method="GET">
 
                 <div class="form-group">
                   <h4>Search ads data by url</h4> {{ form.title }}
@@ -20,7 +20,7 @@
                   <input type="text" name="num" class="form-control mt025" id="number" aria-describedby="numberOfAds" placeholder="Enter a number">
                   
                   <div class="row justify-content-center">
-                    <button type="submit" class="btn btn-primary mt025" name="testBtn">Submit</button>
+                    <button type="submit" class="btn btn-primary mt025" name="search">Submit</button>
                   </div>
                 </div>
               </form>
