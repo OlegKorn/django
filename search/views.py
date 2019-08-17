@@ -4,26 +4,33 @@ from .getsearch import Search_
 
 def get_search(request):
     
-    if request.method == "GET":
+    if request.GET:
 
-        site = request.GET.get("site")
-        estatetype = request.GET.get("estatetype") 
+        url = request.GET.get("url")
+        num = request.GET.get("num") 
+        url2 = str(url) + str(num)
         
-        #url = request.GET.get("url")
-        print(site, estatetype)
-
-        #num = request.GET.get("num")
-
-        '''s = Search_()
-        print(s)
-        s.get_soup(url)
-        print(s.return_soup())'''
-
+        print('------------------URL IS: ', url2)
         
-        context = {
-          'site'       : site,
-          'estatetype' : estatetype,
-        }
+        s = Search_(url2)
+        s.get_soup()
+        print(s.all_data)
+        print(s.no_records_found())
+
+        if not s.no_records_found():
+            s.get_data()
+            context = {
+              'data' : s.all_data,
+              'url' : url,
+              'num'  : num
+            }
+
+        if s.no_records_found():
+            context = {
+              'data' : 'Nothing foundNothing found',
+              'url' : url,
+              'num'  : num
+            }
 
     return render(request, 'search/search.html', context)
     

@@ -19,14 +19,26 @@
         }
       }
     </style>
-    <title> {{ test }} </title>
+    <title> fgdfgdf </title>
   </head>
 
   <body>
 
         
-  <h1> site: {{ site }} </h1>
-  <h1> estatetype: {{ estatetype }} </h1>
+  <h1> site: {{ url }} </h1>
+  <h1> postfix: {{ num }} </h1>
+  </br>
+  {% for i in data %}
+  <div class="jumbotron">
+    <div> {{ i.0 }} </div>
+    <div> {{ i.1 }} </div>
+    <div> {{ i.2 }} </div>
+    <div> {{ i.3 }} </div>
+    <div> {{ i.4 }} </div>
+    <div> {{ i.5 }} </div>
+    <div> {{ i.6 }} </div>    
+  </div>
+  {% endfor %}
 
   </body>
 </html>

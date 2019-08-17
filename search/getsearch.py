@@ -1,7 +1,6 @@
 #-*-coding:utf-8-*-
 import requests, re
 from bs4 import BeautifulSoup as bs
-import yaml
 
 
 class Search_:
@@ -12,15 +11,15 @@ class Search_:
         (X11; Linux x86_64) AppleWebKit/537.36\
         (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36'
     }
-    url = 'https://www.move2oregon.com/all-properties/farms-ranches'
     ROOT = 'https://www.move2oregon.com'
    
-    def __init__(self):
+    def __init__(self, url):
         self.all_data = []
+        self.url = url
 
     def get_soup(self):
         self.session = requests.Session()
-        self.request = self.session.get(Search_.url, headers=Search_.headers)
+        self.request = self.session.get(self.url, headers=Search_.headers)
         self.soup = bs(self.request.content, 'html.parser')
         return self.soup
 
@@ -34,13 +33,15 @@ class Search_:
         #if there is 1 page
         self.end_marker = self.soup.find('li', class_='pagination-end').a.get('href')
         if not self.end_marker:
-            print('1 page')
+            #print('1 page')
+            pass
         else:
-            print('MORE than 1 page')  # kind of: /all-properties/farms-ranches?start=125
+            pass
+            #print('MORE than 1 page')  # kind of: /all-properties/farms-ranches?start=125
             self.url_digits = int(re.findall(r'[0-9]+', self.end_marker)[0])
             
             while not self.url_digits < 0: #нам нужно и 0, а потом будет -25, -50 и тд, тогда и прекратим
-                self.middle_url = Search_.url + '?start=' + str(self.url_digits)
+                self.middle_url = self.url + '?start=' + str(self.url_digits)
                 self.session = requests.Session()
                 self.request = self.session.get(self.middle_url, headers=Search_.headers)
                 self.soup = bs(self.request.content, 'html.parser')
@@ -59,10 +60,23 @@ class Search_:
                     self.item_url = Search_.ROOT + i.find('div', class_='ip-overview-title').a.get('href').strip()
                     
                     # location
-                    self.pre_located = i.find('div', class_='ip-overview-title').get_text().strip().replace(u'\xa0', u' ') 
-                    # location is between - and Beds: - Wolf Creek, Oregon United StatesBeds:
-                    self.item_location = str(re.search(r"-(.*)States", self.pre_located)[0])
-                                        
+                    self.item_pre_location = i.find('div', class_='ip-overview-title').text.strip().replace(u'\xa0', u' ') 
+                    # location is between - and Beds: - Wolf Creek, Oregon United StatesBeds 
+                    # or between - and none:
+                    try:
+                        #case 1 (- and Beds)
+                        self.item_location = re.findall('- (.*)Beds', self.item_pre_location)
+                        #case 2 (- and none)
+                        if len(self.item_location) == 0:
+                            self.item_location = re.findall('- (.*)', self.item_pre_location)
+                        #print(self.item_location)
+                    except Exception as err:
+                        pass
+                        #print(self.item_location, '\n', err)
+                        #input('ENTER TO CONTINUE')
+
+                    #print(self.item_title, self.item_location)
+
                     # 2 types of price tag:
                     if i.find('h4', attrs={'class':'ip-overview-price pull-right'}):
                         self.item_price = i.find('h4', attrs={'class':'ip-overview-price pull-right'}).text.strip()
@@ -79,22 +93,17 @@ class Search_:
                         self.img_url,
                         self.item_title,   
                         self.item_url, 
-                        self.item_location, 
+                        self.item_location[0], 
                         self.item_price,
                         self.item_add_info,
                         self.item_descripton
-                    ])
+                    ])   
 
-                    print(self.middle_url, '\n', self.all_data)
-
-                    input('NEXT')
-
-                
                 self.url_digits -= 25
-
-
          
             print('FINISHED')
+
+        return self.all_data
 
 
 
