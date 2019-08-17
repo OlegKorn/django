@@ -1,8 +1,8 @@
 from django.urls import path
-from .views import get_test
+from .views import get_search
 
 
 urlpatterns = [
-    path('', get_test),
+    path('', get_search),
 ]
 

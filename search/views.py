@@ -1,17 +1,31 @@
 from django.shortcuts import render
+from .getsearch import Search_
 
 
-def get_test(request):
+def get_search(request):
     
-    if request.GET:
-        
-        url = request.GET.get("url")
-        num = request.GET.get("num")
+    if request.method == "GET":
 
+        site = request.GET.get("site")
+        estatetype = request.GET.get("estatetype") 
+        
+        #url = request.GET.get("url")
+        print(site, estatetype)
+
+        #num = request.GET.get("num")
+
+        '''s = Search_()
+        print(s)
+        s.get_soup(url)
+        print(s.return_soup())'''
+
+        
         context = {
-          'url' : url,
-          'num' : num,
+          'site'       : site,
+          'estatetype' : estatetype,
         }
-        print('TEST', url, num)
 
     return render(request, 'search/search.html', context)
+    
+
+

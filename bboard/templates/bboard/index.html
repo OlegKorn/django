@@ -12,16 +12,107 @@
               <form action="search" method="GET">
 
                 <div class="form-group">
-                  <h4>Search ads data by url</h4> {{ form.title }}
+
+                  <!--<h4>Search ads data by url</h4> {{ form.title }}
                   <p class="lh115 mt025">Put an url from this "https://www.move2oregon.com" website, ex.: <span class="italic small mt025">https://www.move2oregon.com/all-properties/homes-on-acreage</span></p>
                   <input type="text" name="url" class="form-control mt025" id="url" aria-describedby="urlHelp" placeholder="Enter url">
                   <h4 class="mt075">Define how many ads to find</h4>
                   <p class="lh105 mt025">Enter a number of ads to be found, ex.: <span class="italic small">10</span></p>
-                  <input type="text" name="num" class="form-control mt025" id="number" aria-describedby="numberOfAds" placeholder="Enter a number">
-                  
-                  <div class="row justify-content-center">
-                    <button type="submit" class="btn btn-primary mt025" name="search">Submit</button>
+                  <input type="text" name="num" class="form-control mt025" id="number" aria-describedby="numberOfAds" placeholder="Enter a number">-->
+
+
+                  <div class="container checkbox-url">
+                    <style> .checkbox-url {border: 1px solid black; margin: .75rem 0;}</style>
+                    <div class="row justify-content-center">
+                      <div class="col-12">
+                        <h4 class="text-center">Search ads on the website:</h4>
+                        <div class="custom-control custom-radio">
+                          <input type="radio" checked="checked" id="customRadio1" name="site" value="https://www.move2oregon.com/" class="custom-control-input">
+                          <label class="custom-control-label" for="customRadio1">Move2Oregon</label>
+                        </div>  
+                      </div>
+                    </div>
                   </div>
+
+                  <div class="container checkbox-values">
+                    <style> .checkbox-values {border: 1px solid black; margin: 1.25rem 0; padding: .75rem 0 auto;}</style>
+                    <div class="row justify-content-center">
+                      <div class="col-12">
+                        
+                        <h4 class="text-center">Choose the kind of real estate:</h4>
+                        <div class="custom-control custom-radio">
+                          <input type="radio" id="customRadio2" name="estatetype" value="open-houses" class="custom-control-input">
+                          <label class="custom-control-label" for="customRadio2">Open houses</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                          <input type="radio" id="customRadio3" name="estatetype" value="single-family-homes" class="custom-control-input">
+                          <label class="custom-control-label" for="customRadio3">Single family homes</label>
+                        </div>  
+                        <div class="custom-control custom-radio">
+                          <input type="radio" id="customRadio4" name="estatetype" value="homes-on-acreage" class="custom-control-input">
+                          <label class="custom-control-label" for="customRadio4">Homes on acreage</label>
+                        </div> 
+                        <div class="custom-control custom-radio">
+                          <input type="radio" id="customRadio5" name="estatetype" value="farms-ranches" class="custom-control-input">
+                          <label class="custom-control-label" for="customRadio5">Farms/Ranches</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                          <input type="radio" id="customRadio6" name="estatetype" value="water-river-ocean-front" class="custom-control-input">
+                          <label class="custom-control-label" for="customRadio6">Water/River/Ocean Front</label>
+                        </div> 
+                        <div class="custom-control custom-radio">
+                          <input type="radio" id="customRadio7" name="estatetype" value="lots-and-land-acreage" class="custom-control-input">
+                          <label class="custom-control-label" for="customRadio7">Lots and Land (Acreage)</label>
+                        </div> 
+                        <div class="custom-control custom-radio">
+                          <input type="radio" id="customRadio8" name="estatetype" value="manufactured-homes" class="custom-control-input">
+                          <label class="custom-control-label" for="customRadio8">Manufactured Homes</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                          <input type="radio" id="customRadio9" name="estatetype" value="condos-townhomes" class="custom-control-input">
+                          <label class="custom-control-label" for="customRadio9">Condos/Townhomes</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                          <input type="radio" id="customRadio10" name="estatetype" value="multi-family" class="custom-control-input">
+                          <label class="custom-control-label" for="customRadio10">Multi-Family</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                          <input type="radio" id="customRadio11" name="estatetype" value="55-retirement" class="custom-control-input">
+                          <label class="custom-control-label" for="customRadio11">55+ Retirement</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                          <input type="radio" id="customRadio12" name="estatetype" value="golf-course-homes" class="custom-control-input">
+                          <label class="custom-control-label" for="customRadio12">Golf Course Homes</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                          <input type="radio" id="customRadio13" name="estatetype" value="new-construction" class="custom-control-input">
+                          <label class="custom-control-label" for="customRadio13">New Construction</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                          <input type="radio" id="customRadio14" name="estatetype" value="commercial-improved-investments" class="custom-control-input">
+                          <label class="custom-control-label" for="customRadio14">Commercial/Improved/<br/>Investments</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                          <input type="radio" id="customRadio15" name="estatetype" value="business-opportunities" class="custom-control-input">
+                          <label class="custom-control-label" for="customRadio15">Business Opportunities</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                          <input type="radio" id="customRadio16" name="estatetype" value="forclosure" class="custom-control-input">
+                          <label class="custom-control-label" for="customRadio16">Forclosure</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                          <input type="radio" id="customRadio17" name="estatetype" value="reo" class="custom-control-input">
+                          <label class="custom-control-label" for="customRadio17">REO</label>
+                        </div>
+                        
+                        <div class="row justify-content-center">
+                          <button type="submit" class="btn btn-primary mt025" name="search">Submit</button>
+                        </div>
+                        
+                      </div>
+                    </div>
+                  </div>
+
                 </div>
               </form>
 
