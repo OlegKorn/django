@@ -6,9 +6,9 @@ def get_search(request):
     
     if request.GET:
 
-        root = request.GET.get("url")
-        num = request.GET.get("num") 
-        url = str(root) + str(num)
+        root = request.GET.get("root")
+        property_type = request.GET.get("property_type") 
+        url = str(root) + str(property_type)
         
         print('------------------URL IS: ', url)
         
@@ -25,9 +25,9 @@ def get_search(request):
         
         if s.no_records_found():
             context = {
-              'data' : 'NONE',
-              'url'  : url,
-              'num'  : num
+              'data'           : 'NONE',
+              'root'           : root,
+              'property_type'  : property_type
             }
 
     return render(request, 'search/search.html', context) 

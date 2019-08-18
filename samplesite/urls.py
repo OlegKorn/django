@@ -5,7 +5,8 @@ from search.views import get_search
 
 
 urlpatterns = [
-    path('', include('bboard.urls')),
+    path('', index),
+    path('bboard/', include('bboard.urls')),
     path('admin/', admin.site.urls),
 
     #app "getcurrency"
