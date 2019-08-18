@@ -116,4 +116,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/samplesite/static/' # в samplesite/samplesite/
+
+# ЕСЛИ ПЕРЕСТАЕТ РАБОТАТЬ СТАТИК УРЛ:
+#STATICFILES_DIRS = [
+#    "/home/o/Документы/LINUXOLEG/py/djang/dronovDjango/samplesite/samplesite/static",
+#]

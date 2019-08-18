@@ -13,27 +13,55 @@
 
                 <div class="form-group">
 
-                  <h4>Search ads data by url</h4> {{ form.title }}
+                  <!--FORMS INPUT-->
+
+                  <!--<select class="form-control">
+                    <option name="url" value="https://www.move2oregon.com/all-properties/">Move2Oregon</option>
+                  </select>-->
+
+                  <h4>Search ads data by url</h4>
                   <p class="lh115 mt025">Put an url from this "https://www.move2oregon.com" website, ex.: <span class="italic small mt025">https://www.move2oregon.com/all-properties/homes-on-acreage</span></p>
-                  <input type="text" name="url" class="form-control mt025" aria-describedby="urlHelp" placeholder="Enter url">
-                  <h4 class="mt075">Define how many ads to find</h4>
-                  <p class="lh105 mt025">Enter a number of ads to be found, ex.: <span class="italic small">10</span></p>
-                  <input type="text" name="num" class="form-control mt025" aria-describedby="numberOfAds" placeholder="Enter a number">
+                  <input type="text" class="form-control mt025" name="url" placeholder="Enter url">
+
+                  <h4>Define property type</h4>
+                  <p class="lh115 mt025">Define property type:</p>
+                  <input type="text" class="form-control mt025" name="num" placeholder="Property type"> 
+                  
+                  <!--<h4 class="mt075">Define the kind of property</h4>            
+                  <select multiple class="form-control">
+                    <option name="num" value="open-houses">Open houses</option>
+                    <option name="num" value="single-family-homes">Single family homes</option>
+                    <option name="num" value="homes-on-acreage">Homes on acreage</option>
+                    <option name="num" value="farms-ranches">Farms/ranches</option>
+                    <option name="num" value="water-river-ocean-front">Water/River/Ocean Front</option>
+                    <option name="num">6</option>
+                    <option name="num">2</option>
+                    <option name="num">3</option>
+                    <option name="num">4</option>
+                    <option name="num">5</option>
+                    <option name="num">1</option>
+                    <option name="num">2</option>
+                    <option name="num">3</option>
+                    <option name="num">4</option>
+                    <option name="num">5</option>
+                  </select>-->
 
                   <div class="row justify-content-center">
                     <button type="submit" class="btn btn-primary mt025" name="search">Submit</button>
                   </div>
+                  <!--FORMS INPUT-->
 
-                  <!--<div class="container checkbox-url">
+<!--CHECKBOX-->
+                 <!-- <div class="container checkbox-url">
                     <div class="row justify-content-center">
                       <div class="col-12">
                         <h4 class="text-center">Search ads on the website:</h4>
                         <div class="custom-control custom-radio">
-                          <input type="radio" id="customRadio1" name="site" value="https://www.move2oregon.com/all-properties/" class="custom-control-input">
+                          <input type="radio" id="customRadio1" name="url" value="https://www.move2oregon.com/all-properties/" class="custom-control-input">
                           <label class="custom-control-label" for="customRadio1">Move2Oregon</label>
                         </div>
                         <div class="custom-control custom-radio">
-                          <input type="radio" id="customRadio2" name="site" value="https://www.move2oregon.com/all-properties/" class="custom-control-input">
+                          <input type="radio" id="customRadio2" name="url" value="https://www.move2oregon.com/all-properties/" class="custom-control-input">
                           <label class="custom-control-label" for="customRadio2">Move2Oregon</label>
                         </div>   
                       </div>
@@ -118,6 +146,7 @@
                       </div>
                     </div>
                   </div> -->
+                  <!--CHECKBOX-->
 
                 </div>
               </form>

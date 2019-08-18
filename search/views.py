@@ -6,33 +6,30 @@ def get_search(request):
     
     if request.GET:
 
-        url = request.GET.get("url")
+        root = request.GET.get("url")
         num = request.GET.get("num") 
-        url2 = str(url) + str(num)
+        url = str(root) + str(num)
         
-        print('------------------URL IS: ', url2)
+        print('------------------URL IS: ', url)
         
-        s = Search_(url2)
+        s = Search_(url)
         s.get_soup()
-        print(s.all_data)
-        print(s.no_records_found())
 
         if not s.no_records_found():
-            s.get_data()
+            s.main()
             context = {
               'data' : s.all_data,
-              'url' : url,
+              'url'  : url,
               'num'  : num
             }
-
+        
         if s.no_records_found():
             context = {
-              'data' : 'Nothing foundNothing found',
-              'url' : url,
+              'data' : 'NONE',
+              'url'  : url,
               'num'  : num
             }
 
-    return render(request, 'search/search.html', context)
-    
+    return render(request, 'search/search.html', context) 
 
 
