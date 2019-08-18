@@ -7,8 +7,8 @@ def get_search(request):
     if request.GET:
 
         root = request.GET.get("root")
-        property_type_input = request.GET.get("property_type_input") 
-        url = str(root) + str(property_type_input)
+        property_type_radio = request.GET.get("property_type_radio") 
+        url = str(root) + str(property_type_radio)
         
         print('------------------URL IS: ', url)
         
@@ -19,15 +19,15 @@ def get_search(request):
             s.main()
             context = {
               'data'                 : s.all_data,
-              'property_type_input'  : property_type_input,
+              'property_type_radio'  : property_type_radio,
               'url'                  : url
             }
         
         if s.no_records_found():
             context = {
               'data'                 : 'NONE',
-              'url'                  : url,
-              'property_type_input'  : property_type_input
+              'property_type_radio'  : property_type_radio,
+              'url'                  : url
             }
 
     return render(request, 'search/search.html', context) 
