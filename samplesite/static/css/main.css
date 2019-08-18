@@ -111,3 +111,6 @@ p {
 .mt025 {
   margin-top: .25rem;
 }
+.custom-control-label:hover {
+  cursor: pointer !important;
+}

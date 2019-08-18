@@ -119,6 +119,6 @@ USE_TZ = True
 STATIC_URL = '/samplesite/static/' # в samplesite/samplesite/
 
 # ЕСЛИ ПЕРЕСТАЕТ РАБОТАТЬ СТАТИК УРЛ:
-#STATICFILES_DIRS = [
-#    "/home/o/Документы/LINUXOLEG/py/djang/dronovDjango/samplesite/samplesite/static",
-#]
+STATICFILES_DIRS = [
+  "/home/o/Документы/LINUXOLEG/py/djang/dronovDjango/samplesite/samplesite/static",
+]

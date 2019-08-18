@@ -5,7 +5,7 @@ from search.views import get_search
 
 
 urlpatterns = [
-    path('', index),
+    path('', index), 
     path('bboard/', include('bboard.urls')),
     path('admin/', admin.site.urls),
 

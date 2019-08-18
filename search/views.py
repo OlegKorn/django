@@ -7,8 +7,8 @@ def get_search(request):
     if request.GET:
 
         root = request.GET.get("root")
-        property_type = request.GET.get("property_type") 
-        url = str(root) + str(property_type)
+        property_type_input = request.GET.get("property_type_input") 
+        url = str(root) + str(property_type_input)
         
         print('------------------URL IS: ', url)
         
@@ -27,7 +27,7 @@ def get_search(request):
             context = {
               'data'           : 'NONE',
               'root'           : root,
-              'property_type'  : property_type
+              'property_type'  : property_type_input
             }
 
     return render(request, 'search/search.html', context) 
