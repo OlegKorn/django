@@ -12,6 +12,6 @@ urlpatterns = [
     #app "getcurrency"
     path('currency/', include('getcurrency.urls')),
 
-    #app "search"
+    #app "search "
     path('search/', get_search),
 ]
