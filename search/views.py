@@ -18,16 +18,16 @@ def get_search(request):
         if not s.no_records_found():
             s.main()
             context = {
-              'data' : s.all_data,
-              'url'  : url,
-              'num'  : num
+              'data'                 : s.all_data,
+              'property_type_input'  : property_type_input,
+              'url'                  : url
             }
         
         if s.no_records_found():
             context = {
-              'data'           : 'NONE',
-              'root'           : root,
-              'property_type'  : property_type_input
+              'data'                 : 'NONE',
+              'url'                  : url,
+              'property_type_input'  : property_type_input
             }
 
     return render(request, 'search/search.html', context) 

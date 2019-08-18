@@ -11,8 +11,8 @@ class Search_:
         (X11; Linux x86_64) AppleWebKit/537.36\
         (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36'
     }
-    ROOT = 'https://www.move2oregon.com'
-   
+    ROOT = 'https://www.move2oregon.com' 
+    
     def __init__(self, url):
         self.all_data = []
         self.url = url
@@ -41,14 +41,14 @@ class Search_:
             self.url_digits = int(re.findall(r'[0-9]+', self.end_marker)[0])
             self.zero = 0
             
-        while self.zero != self.url_digits : #нам нужно и 0, а потом будет -25, -50 и тд, тогда и прекратим
+        while self.zero < (self.url_digits+1): #нам нужно и 0, а потом будет -25, -50 и тд, тогда и прекратим
             self.url = self.url + '?start=' + str(self.zero)
             self.session = requests.Session()
             self.request = self.session.get(self.url, headers=Search_.headers)
             self.soup = bs(self.request.content, 'html.parser')
                         
             #ПОЛУЧИМ ЗНАЧЕНИЯ КАЖДОГО ДОМА
-            for i in self.soup.find_all('div', class_='row-fluid ip-row0 ip-overview-row'):
+            for i in self.soup.find_all('div', class_='ip-overview-row'): 
                             
                 # img url
                 self.soup_img = i.find('div', class_='ip-property-thumb-holder').img.get('src').replace('_thumb', '').strip()
@@ -99,7 +99,7 @@ class Search_:
 
             self.zero += 25
                  
-            print('FINISHED')
+        print('FINISHED')
 
         return self.all_data
 
