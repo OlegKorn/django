@@ -1,33 +1,16 @@
 {% extends "basic_search.html" %}
-
+  
   {% block content %}
   
-  {% for i in data %}
-<!--  <div class="container main-container">
-    <div class="row justify-content-center color1">
-      <div class="col-md-10 col-sm-12 card">
-        <div class="card shadow-sm">
-          <div class="card-body align-items-start shadow color">
-            <h5 class="mb-0">
-              <b>{{ i.0 }}</b>
-              </br>
-              <small class="text-dark">PRICE: {{ i.1 }} $</small>
-            </h5>
-            <div class="mb-1 text-muted"> {{ i.2 }} </div>  
-            <p class="card-text mb-auto"> {{ i.3 }} </p> 
-            <p class="card-text mb-auto"> {{ i.4 }} </p>
-            <p class="card-text mb-auto"> {{ i.5 }} </p>
-            <p class="card-text mb-auto"> {{ i.6 }} </p>
-          </div> 
-        </div>
-      </div> 
-    </div>
-  </div> -->
+  <link rel="stylesheet" href="/samplesite/search/css/simplebox.min.css"/>
 
+  {% if data %}
+
+  {% for i in data %}
   <div class="container">
     <div class="row justify-content-center mtb1 shadow color">
       <div class="col-md-3 col-sm-12 text-center">
-        <img src="{{ i.0 }}" alt="{{ i.1 }}">
+        <img class="slb" src="{{ i.0 }}" alt="{{ i.1 }}">
       </div>
       <div class="col-md-8 col-sm-12 text-left">
         <h3> {{ i.1 }} </h3>
@@ -41,31 +24,20 @@
       </div>
     </div>
   </div>
-
-  <!--
-                   self.img_url,              0
-                    self.item_title,          1
-                    self.item_url,            2 
-                    self.item_location[0],    3
-                    self.item_price,          4
-                    self.item_add_info,       5
-                    self.item_descripton      6
-  -->
-
-      <style>
-      img {
-        width: 100% !important;
-        height: 100% !important;
-      }
-      .col-7, .col-4, .col-md-8, .col-md-3 {
-        margin: .25rem;
-        padding: .25rem;
-      }
-      p {
-        margin: 0;
-        padding: 0;
-      }
-    </style>
   {% endfor %}
 
+  {% else %}
+  <div class="container">
+    <div class="row justify-content-center mtb1 shadow color">
+      <div class="col-md-3 col-sm-12 text-center">
+        <h4>No ads found at</h4>
+        <p><a href="{{ url }}">{{ url }}</a></p>
+      </div>
+    </div>
+  </div> 
+  {% endif %} 
+
   {% endblock %}
+
+
+
