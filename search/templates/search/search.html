@@ -1,9 +1,9 @@
 {% extends "basic_search.html" %}
 
   {% block content %}
-
+  
   {% for i in data %}
-  <div class="container main-container">
+<!--  <div class="container main-container">
     <div class="row justify-content-center color1">
       <div class="col-md-10 col-sm-12 card">
         <div class="card shadow-sm">
@@ -22,31 +22,50 @@
         </div>
       </div> 
     </div>
-  </div>
-  {% endfor %}
-
-  <!--{% for contact in contacts %}
-    {# Each "contact" is a Contact model object. #}
-    {{ contact.full_name|upper }}<br>
-    ...
-  {% endfor %}
-
-  <div class="pagination">
-    <span class="step-links">
-      {% if contacts.has_previous %}
-        <a href="?page=1">&laquo; first</a>
-        <a href="?page={{ contacts.previous_page_number }}">previous</a>
-     {% endif %}
-
-      <span class="current">
-        Page {{ contacts.number }} of {{ contacts.paginator.num_pages }}.
-      </span>
-
-      {% if contacts.has_next %}
-        <a href="?page={{ contacts.next_page_number }}">next</a>
-        <a href="?page={{ contacts.paginator.num_pages }}">last &raquo;</a>
-      {% endif %}
-    </span>
   </div> -->
+
+  <div class="container">
+    <div class="row justify-content-center mtb1 shadow color">
+      <div class="col-md-3 col-sm-12 text-center">
+        <img src="{{ i.0 }}" alt="{{ i.1 }}">
+      </div>
+      <div class="col-md-8 col-sm-12 text-left">
+        <h3> {{ i.1 }} </h3>
+        <small class="text-dark"> {{ i.3 }} </small>
+        <div class="mb-1 text-muted">
+          <a href="{{ i.2 }}">{{ i.1 }}</a> </div>  
+        <p class="card-text mb-auto"> PRICE: {{ i.4 }}$ </p> 
+        <p class="card-text mb-auto"> {{ i.4 }} </p>
+        <p class="card-text mb-auto"> {{ i.5 }} </p>
+        <p class="card-text mb-auto"> {{ i.6 }} </p>
+      </div>
+    </div>
+  </div>
+
+  <!--
+                   self.img_url,              0
+                    self.item_title,          1
+                    self.item_url,            2 
+                    self.item_location[0],    3
+                    self.item_price,          4
+                    self.item_add_info,       5
+                    self.item_descripton      6
+  -->
+
+      <style>
+      img {
+        width: 100% !important;
+        height: 100% !important;
+      }
+      .col-7, .col-4, .col-md-8, .col-md-3 {
+        margin: .25rem;
+        padding: .25rem;
+      }
+      p {
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  {% endfor %}
 
   {% endblock %}

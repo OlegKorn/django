@@ -29,11 +29,18 @@ def get_search(request):
             if not s.only_one_page_found(): # если больше одной страницы объявлений               
                 s.get_url_digits()
                 s.main()
+                
+                paginator = Paginator(s.all_data, 15) # Show 25 contacts per page
+                page = request.GET.get('page') 
+                contacts = paginator.get_page(page)
+
+                print(contacts, '15', len(s.all_data))
+
                 context = {
                   'data'                 : s.all_data,
                   'property_type_radio'  : property_type_radio,
                   'url'                  : url,
-                  #'contacts'             : contacts
+                  'contacts'             : contacts
                 }
         
         if not s.records_found(): # если нет записей в рубрике     
