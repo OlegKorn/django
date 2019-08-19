@@ -1,42 +1,52 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-      }
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
-    <title> fgdfgdf </title>
-  </head>
+{% extends "basic_search.html" %}
 
-  <body>
+  {% block content %}
 
-        
-  <h1> site: {{ url }} </h1>
-  <h1> property_type_radio: {{ property_type_radio }} </h1>
-  </br>
   {% for i in data %}
-  <div class="jumbotron">
-    <div> {{ i.0 }} </div>
-    <div> {{ i.1 }} </div>
-    <div> {{ i.2 }} </div>
-    <div> {{ i.3 }} </div>
-    <div> {{ i.4 }} </div>
-    <div> {{ i.5 }} </div>
-    <div> {{ i.6 }} </div>    
+  <div class="container main-container">
+    <div class="row justify-content-center color1">
+      <div class="col-md-10 col-sm-12 card">
+        <div class="card shadow-sm">
+          <div class="card-body align-items-start shadow color">
+            <h5 class="mb-0">
+              <b>{{ i.0 }}</b>
+              </br>
+              <small class="text-dark">PRICE: {{ i.1 }} $</small>
+            </h5>
+            <div class="mb-1 text-muted"> {{ i.2 }} </div>  
+            <p class="card-text mb-auto"> {{ i.3 }} </p> 
+            <p class="card-text mb-auto"> {{ i.4 }} </p>
+            <p class="card-text mb-auto"> {{ i.5 }} </p>
+            <p class="card-text mb-auto"> {{ i.6 }} </p>
+          </div> 
+        </div>
+      </div> 
+    </div>
   </div>
   {% endfor %}
 
-  </body>
-</html>
+  <!--{% for contact in contacts %}
+    {# Each "contact" is a Contact model object. #}
+    {{ contact.full_name|upper }}<br>
+    ...
+  {% endfor %}
+
+  <div class="pagination">
+    <span class="step-links">
+      {% if contacts.has_previous %}
+        <a href="?page=1">&laquo; first</a>
+        <a href="?page={{ contacts.previous_page_number }}">previous</a>
+     {% endif %}
+
+      <span class="current">
+        Page {{ contacts.number }} of {{ contacts.paginator.num_pages }}.
+      </span>
+
+      {% if contacts.has_next %}
+        <a href="?page={{ contacts.next_page_number }}">next</a>
+        <a href="?page={{ contacts.paginator.num_pages }}">last &raquo;</a>
+      {% endif %}
+    </span>
+  </div> -->
+
+  {% endblock %}

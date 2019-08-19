@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from .getsearch import Search_
+from .getsearch import Search_, OnePage
+from django.core.paginator import Paginator
 
 
 def get_search(request):
@@ -9,23 +10,36 @@ def get_search(request):
         root = request.GET.get("root")
         property_type_radio = request.GET.get("property_type_radio") 
         url = str(root) + str(property_type_radio)
-        
-        print('------------------URL IS: ', url)
-        
+        print('--URL IS--: ', url)
         s = Search_(url)
         s.get_soup()
-
-        if not s.no_records_found():
-            s.main()
-            context = {
-              'data'                 : s.all_data,
-              'property_type_radio'  : property_type_radio,
-              'url'                  : url
-            }
         
-        if s.no_records_found():
+        if s.records_found(): # если есть записи в рубрике
+
+            if s.only_one_page_found(): # если лишь одна страница объявлений
+                # создаем объект OnePage()
+                o = OnePage()
+                o.main()
+                context = {
+                  'data'                 : o.all_data,
+                  'property_type_radio'  : property_type_radio,
+                  'url'                  : url
+                }
+
+            if not s.only_one_page_found(): # если больше одной страницы объявлений               
+                s.get_url_digits()
+                s.main()
+                context = {
+                  'data'                 : s.all_data,
+                  'property_type_radio'  : property_type_radio,
+                  'url'                  : url,
+                  #'contacts'             : contacts
+                }
+        
+        if not s.records_found(): # если нет записей в рубрике     
+            message = 'Sorry, no records were found in ' + url
             context = {
-              'data'                 : 'NONE',
+              'data'                 : message,
               'property_type_radio'  : property_type_radio,
               'url'                  : url
             }
