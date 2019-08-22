@@ -1,12 +1,10 @@
 {% extends "basic_search.html" %}
   
   {% block content %}
-  
-  <link rel="stylesheet" href="/samplesite/search/css/simplebox.min.css"/>
 
-  {% if data %}
+  {% if pagination %}
 
-  {% for i in data %}
+  {% for i in pagination %}
   <div class="container">
     <div class="row justify-content-center mtb1 shadow color">
       <div class="col-md-3 col-sm-12 text-center">
@@ -26,6 +24,40 @@
   </div>
   {% endfor %}
 
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-12">
+        <nav aria-label="Page navigation example">
+          <ul class="pagination justify-content-center">
+            <p class="page-link">Page {{ pagination.number }} of {{ pagination.paginator.num_pages }}</p>
+            {% for i in pagination.paginator.page_range %}
+              {% if pagination.number == i %}
+            <li class="page-item active">
+              <a class="page-link" href="?page={{ i }}">{{ i }}
+                <span class="sr-only">(current)</span></a>
+            </li>
+              {% elif i > pagination.number|add:-3 and i < pagination.number|add:3 %}
+            <li class="page-item active">
+              <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+            </li>
+              {% endif %}
+            {% endfor %}
+
+            {% if pagination.has_next %}
+            <li class="page-item">
+              <a class="page-link" href="?page={{ pagination.next_page_number }}">Next</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="?page={{ pagination.paginator.num_pages }}">Last</a>
+            </li>
+            {% endif %}
+
+          </ul>
+        </nav>      
+      </div>
+    </div>
+  </div>
+
   {% else %}
   <div class="container">
     <div class="row justify-content-center mtb1 shadow color">
@@ -38,6 +70,3 @@
   {% endif %} 
 
   {% endblock %}
-
-
-

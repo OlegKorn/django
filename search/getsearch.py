@@ -3,6 +3,21 @@ import requests, re
 from bs4 import BeautifulSoup as bs
 
 
+'''
+import requests, re
+from bs4 import BeautifulSoup as bs
+from search.getsearch import Search_, OnePage
+from django.core.paginator import Paginator
+s = Search_('https://www.move2oregon.com/all-properties/55-retirement')
+s.get_soup()
+o = OnePage()
+o.main()
+paginator = Paginator(o.all_data, 2) 
+page = request.GET.get('page')
+print(page)
+pagination = paginator.get_page(page)
+'''
+
 class Search_:
 
     headers = {
@@ -11,14 +26,16 @@ class Search_:
         (X11; Linux x86_64) AppleWebKit/537.36\
         (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36'
     }
-    ROOT = 'https://www.move2oregon.com' 
+    ROOT = 'https://www.move2oregon.com/all-properties/' 
+    CLEAR_ROOT = 'https://www.move2oregon.com'
     soup = ''
 
-    def __init__(self, url):
+    def __init__(self):
         self.all_data = []
-        self.url = url
-        Search_.url = self.url
-        
+    
+    def set_url(self, t):
+        self.url = Search_.ROOT + t
+        return self.url   
 
     def get_soup(self):
         self.session = requests.Session()
@@ -59,7 +76,7 @@ class Search_:
                             
                 # img url
                 self.soup_img = i.find('div', class_='ip-property-thumb-holder').img.get('src').replace('_thumb', '').strip()
-                self.img_url = Search_.ROOT + self.soup_img
+                self.img_url = Search_.CLEAR_ROOT + self.soup_img
                             
                 # item title
                 self.item_title = i.find('div', class_='ip-overview-title').a.text.strip()          # 105 Dog Creek Rd
@@ -118,7 +135,6 @@ class OnePage(Search_):
 
     def __init__(self):
         self.all_data = []
-        self.url = Search_.url
         self.soup = Search_.soup
     
     def main(self):            
@@ -132,7 +148,7 @@ class OnePage(Search_):
                             
                 # img url
                 self.soup_img = i.find('div', class_='ip-property-thumb-holder').img.get('src').replace('_thumb', '').strip()
-                self.img_url = Search_.ROOT + self.soup_img
+                self.img_url = Search_.CLEAR_ROOT + self.soup_img
                             
                 # item title
                 self.item_title = i.find('div', class_='ip-overview-title').a.text.strip()          # 105 Dog Creek Rd
